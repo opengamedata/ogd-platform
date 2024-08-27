@@ -35,8 +35,9 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
   - seaborn 0.13.*
   - sshtunnel 0.4.0
   - statsmodels 0.13.*
-  - tensorflow 2.11.*
+  - tensorflow 2.17.*
   - twine 4.0.*
 - PHP v.8.1.17
-- MySQL 15.1
-  - Uses MariaDB 10.5.18
+- MariaDB 10.5.18 (compatible with MySQL 15.1)
+
+Last updated August 2024.
