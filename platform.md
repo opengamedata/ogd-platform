@@ -19,7 +19,6 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
 ## Latest Platform
 
 - Python: 3.12
-  - build 1.2.*
   - gitdb 4.0.*
   - GitPython 3.1.*
   - google-cloud-bigquery 3.19.0
@@ -36,6 +35,9 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
   - sshtunnel 0.4.0
   - statsmodels 0.14.*
   - tensorflow 2.17.*
+- Python Build Tools
+  - build 1.2.*
+  - setuptools 74.1.*
   - twine 4.0.*
 - PHP v.8.1.17
 - MariaDB 10.5.18 (compatible with MySQL 15.1)
