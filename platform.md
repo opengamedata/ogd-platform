@@ -30,6 +30,7 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
   - flask-cors 4.0.1
   - flask-restful 0.3.10
   - pandas 2.2.*
+  - requests 2.32.*
   - scikit-learn 1.5.*
   - seaborn 0.13.*
   - sshtunnel 0.4.0
