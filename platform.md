@@ -32,6 +32,7 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
   - mysql-connector-python 8.0.25
   - numpy 2.1.*
   - pandas 2.2.*
+  - requests 2.32.*
   - scikit-learn 1.5.*
   - seaborn 0.13.*
   - sshtunnel 0.4.0
@@ -40,7 +41,8 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
 - Python Build Tools
   - build 1.2.*
   - setuptools 74.1.*
-  - twine 4.0.*
+  - setuptools-git-versioning 2.0.*
+  - twine 5.1.*
   - wheel 0.44.*
 - PHP v.8.1.17
 - MariaDB 10.5.18 (compatible with MySQL 15.1)
