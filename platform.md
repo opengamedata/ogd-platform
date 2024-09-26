@@ -46,3 +46,20 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
   - wheel 0.44.*
 - PHP v.8.1.17
 - MariaDB 10.5.18 (compatible with MySQL 15.1)
+- GitHub Actions
+  - actions/checkout@v4
+  - actions/upload-artifact@v4
+  - burnett01/rsync-deployments@7.0.1
+
+## OpenGameData Tools & Libraries - Compatible with Platform
+
+The following releases of tools, libraries, and APIs from the OpenGameData community are compatible with the platform version outlined above, and are recommended for use with any projects using this version of the platform:
+
+- Libraries
+  - opengamedata-core >= 0.0.14
+  - opengamedata-common >= 1.2.0
+  - OGDUtils >= 2.1.0
+  - APIUtils >= 1.1.0
+- Tools
+- GitHub Actions
+  - opengamedata/actions-openconnect-vpn >= v1.1
