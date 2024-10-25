@@ -29,7 +29,7 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
   - google-cloud-bigquery 3.19.0
   - ipywidgets 8.0.*
   - matplotlib 3.9.*
-  - mysql-connector-python 8.0.25
+  - mysql-connector-python 9.1.0
   - numpy 2.1.*
   - pandas 2.2.*
   - requests 2.32.*
@@ -48,6 +48,8 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
 - MariaDB 10.5.18 (compatible with MySQL 15.1)
 - GitHub Actions
   - actions/checkout@v4
+  - actions/cache/save@v4
+  - actions/cache/restore@v4
   - actions/upload-artifact@v4
   - burnett01/rsync-deployments@7.0.1
 
@@ -63,3 +65,5 @@ The following releases of tools, libraries, and APIs from the OpenGameData commu
 - Tools
 - GitHub Actions
   - opengamedata/actions-openconnect-vpn >= v1.1
+  - opengamedata/actions-setup-ogd-py-dependencies >= v1.1
+  - opengamedata/actions-setup-ogd-py-build >= v2.0
