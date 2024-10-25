@@ -66,5 +66,5 @@ The following releases of tools, libraries, and APIs from the OpenGameData commu
 - Tools
 - GitHub Actions
   - opengamedata/actions-openconnect-vpn >= v1.1
-  - opengamedata/actions-setup-ogd-py-dependencies >= v1.1
+  - opengamedata/actions-setup-ogd-py-dependencies >= v1.2
   - opengamedata/actions-setup-ogd-py-build >= v2.0
