@@ -51,6 +51,7 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
   - actions/cache/save@v4
   - actions/cache/restore@v4
   - actions/upload-artifact@v4
+  - actions/setup-python@v5.3
   - burnett01/rsync-deployments@7.0.1
 
 ## OpenGameData Tools & Libraries - Compatible with Platform
