@@ -54,6 +54,7 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
   - actions/setup-node@v4
   - actions/setup-python@v5.3
   - burnett01/rsync-deployments@7.0.1
+  - google-github-actions/setup-gcloud@v2.1.4
 
 ## OpenGameData Tools & Libraries - Compatible with Platform
 
