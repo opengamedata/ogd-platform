@@ -54,10 +54,18 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
 
 ### JavaScript
 
+- nodejs v18
+- popperjs/core 2.11.6
+- axio 1.3.4
+- bootstrap 5.2.3
+- chart.js 4.2.1
+
 ### LAMP packages
 
-- PHP v.8.1.17
-- MariaDB 10.5.18 (compatible with MySQL 15.1)
+- Apache
+  - mod_wsgi
+- PHP v.8.1.32
+- MariaDB 10.5.29 (compatible with MySQL 15.1)
 
 ### GitHub Actions
 
