@@ -68,6 +68,10 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
   - jest-dom ^5.16.5
   - react ^13.4.0
   - user-event ^14.4.3
+- @types/
+  - node ^18.11.18
+  - react ^18.0.26
+  - react-dom ^18.0.10
 
 - axios ^1.3.4
 - bootstrap ^5.2.3
@@ -78,6 +82,9 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
 - d3-selection-multi ^1.0.1
 - gulp ^4.0.2
 - gulp-sass ^5.1.0
+- jsdoc-typeof-plugin ^1.0.0
+- tailwindcss ^3.2.4
+- typescript ^4.9.4
 - react ^18.2.0
   - react-dom ^18.2.0
   - react-router-dom ^6.6.2
