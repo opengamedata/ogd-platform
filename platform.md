@@ -55,10 +55,35 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
 ### JavaScript
 
 - nodejs v18
-- popperjs/core 2.11.6
-- axio 1.3.4
-- bootstrap 5.2.3
-- chart.js 4.2.1
+
+#### JS Libraries
+
+- @heroicons/
+  - react ^2.0.13
+- @popperjs/
+  - core ^2.11.6
+- @tailwindcss/
+  - forms ^0.5.3
+- @testing-library/
+  - jest-dom ^5.16.5
+  - react ^13.4.0
+  - user-event ^14.4.3
+
+- axios ^1.3.4
+- bootstrap ^5.2.3
+- browser-sync ^2.2.28.3
+- c3 ^0.7.20
+- chart.js ^4.2.1
+- d3 ^7.8.0
+- d3-selection-multi ^1.0.1
+- gulp ^4.0.2
+- gulp-sass ^5.1.0
+- react ^18.2.0
+  - react-dom ^18.2.0
+  - react-router-dom ^6.6.2
+  - react-scripts ^5.0.1
+- sass ^1.58.3
+- web-vitals ^3.1.0
 
 ### LAMP packages
 
