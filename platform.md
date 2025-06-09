@@ -16,45 +16,59 @@ However, any OpenGameData project should avoid using a different version of any 
 We use this list for GitHub Actions, requirements.txt, and .devcontainer files.
 Note: for some libraries, we use .* to indicate any patch version may be used (we only specify patch version for mission-critical dependencies, such as database libraries).
 
-## Latest Platform
+## External Packages Platform
+
+### Python
 
 - Python: 3.12
-  - gitdb 4.0.*
-  - GitPython 3.1.*
-  - flask 2.3.3
-  - flask-cors 4.0.1
-  - flask-restful 0.3.10
-  - Flask-SocketIO 5.3.6
-  - google-auth 2.16.1
-  - google-cloud-bigquery 3.19.0
-  - ipywidgets 8.0.*
-  - matplotlib 3.9.*
-  - mysql-connector-python 9.1.0
-  - numpy 2.1.*
-  - pandas 2.2.*
-  - requests 2.32.*
-  - scikit-learn 1.5.*
-  - seaborn 0.13.*
-  - sshtunnel 0.4.0
-  - statsmodels 0.14.*
-  - tensorflow 2.17.*
-- Python Build Tools
-  - build 1.2.*
-  - setuptools 74.1.*
-  - setuptools-git-versioning 2.0.*
-  - twine 5.1.*
-  - wheel 0.44.*
+
+#### Python Libraries
+
+- gitdb 4.0.*
+- GitPython 3.1.*
+- flask 2.3.3
+- flask-cors 4.0.1
+- flask-restful 0.3.10
+- Flask-SocketIO 5.3.6
+- google-auth 2.16.1
+- google-cloud-bigquery 3.19.0
+- ipywidgets 8.0.*
+- matplotlib 3.9.*
+- mysql-connector-python 9.1.0
+- numpy 2.1.*
+- pandas 2.2.*
+- requests 2.32.*
+- scikit-learn 1.5.*
+- seaborn 0.13.*
+- sshtunnel 0.4.0
+- statsmodels 0.14.*
+- tensorflow 2.17.*
+
+#### Python Build Tools
+
+- build 1.2.*
+- setuptools 74.1.*
+- setuptools-git-versioning 2.0.*
+- twine 5.1.*
+- wheel 0.44.*
+
+### JavaScript
+
+### LAMP packages
+
 - PHP v.8.1.17
 - MariaDB 10.5.18 (compatible with MySQL 15.1)
-- GitHub Actions
-  - actions/checkout@v4
-  - actions/cache/save@v4
-  - actions/cache/restore@v4
-  - actions/upload-artifact@v4
-  - actions/setup-node@v4
-  - actions/setup-python@v5.3
-  - burnett01/rsync-deployments@7.0.1
-  - google-github-actions/setup-gcloud@v2.1.4
+
+### GitHub Actions
+
+- actions/checkout@v4
+- actions/cache/save@v4
+- actions/cache/restore@v4
+- actions/upload-artifact@v4
+- actions/setup-node@v4
+- actions/setup-python@v5.3
+- burnett01/rsync-deployments@7.0.1
+- google-github-actions/setup-gcloud@v2.1.4
 
 ## OpenGameData Tools & Libraries - Compatible with Platform
 
