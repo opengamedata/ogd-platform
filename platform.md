@@ -54,7 +54,7 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
 
 ### JavaScript
 
-- nodejs v18
+- nodejs v22
 
 #### JS Libraries
 
