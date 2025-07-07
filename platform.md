@@ -27,7 +27,7 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
 - gitdb 4.0.*
 - GitPython 3.1.*
 - flask 2.3.3
-- flask-cors 4.0.1
+- flask-cors 6.0.1
 - flask-restful 0.3.10
 - Flask-SocketIO 5.3.6
 - google-auth 2.16.1
