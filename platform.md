@@ -116,7 +116,7 @@ The following releases of tools, libraries, and APIs from the OpenGameData commu
 
 - Libraries
   - opengamedata-core >= 0.0.14
-  - opengamedata-common >= 1.2.0
+  - opengamedata-common >= 2.0.0
   - OGDUtils >= 2.1.0
   - APIUtils >= 1.1.0
 - Tools
@@ -125,3 +125,4 @@ The following releases of tools, libraries, and APIs from the OpenGameData commu
   - opengamedata/actions-setup-ogd-py-dependencies >= v1.2
   - opengamedata/actions-setup-ogd-py-build >= v2.0
   - opengamedata/actions-setup-fd-git >= v1.0
+  - opengamedata/actions-execute-testbed >= v1.0
