@@ -34,7 +34,7 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
 - google-cloud-bigquery 3.19.0
 - ipywidgets 8.0.*
 - matplotlib 3.9.*
-- mysql-connector-python 9.1.0
+- mysql-connector-python 9.3.0
 - numpy 2.1.*
 - pandas 2.2.*
 - requests 2.32.*
