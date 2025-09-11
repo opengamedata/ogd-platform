@@ -31,7 +31,8 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
 - flask-restful 0.3.10
 - Flask-SocketIO 5.3.6
 - google-auth 2.16.1
-- google-cloud-bigquery 3.19.0
+- google-cloud-bigquery 3.37.0
+- google-cloud-bigquery-storage 2.33.1
 - ipywidgets 8.0.*
 - matplotlib 3.9.*
 - mysql-connector-python 9.3.0
