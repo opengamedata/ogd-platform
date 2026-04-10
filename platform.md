@@ -38,6 +38,8 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
 - mysql-connector-python 9.3.0
 - numpy 2.1.*
 - pandas 2.2.*
+- paramiko 3.5.*
+- pyOpenSSL 23.0.0
 - requests 2.32.*
 - scikit-learn 1.5.*
 - seaborn 0.13.*
