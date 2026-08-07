@@ -1,0 +1,160 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                 String                   @id @default(uuid()) @db.Uuid
+  displayName        String?                  @map("display_name")
+  primaryEmail       String                   @unique @map("primary_email")
+  createdAt          DateTime                 @default(now()) @map("created_at")
+  updatedAt          DateTime                 @updatedAt @map("updated_at")
+  externalIdentities ExternalIdentity[]
+  createdOrganizations Organization[]         @relation("OrganizationCreator")
+  createdGames       Game[]                   @relation("GameCreator")
+  memberships        OrganizationMembership[]
+  reviews            ReviewRecord[]           @relation("ReviewReviewer")
+  auditEvents         AuditEvent[]
+
+  @@map("users")
+}
+
+model ExternalIdentity {
+  id              String   @id @default(uuid()) @db.Uuid
+  userId          String   @map("user_id") @db.Uuid
+  provider        String
+  providerSubject String   @map("provider_subject")
+  createdAt       DateTime @default(now()) @map("created_at")
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerSubject])
+  @@map("external_identities")
+}
+
+model Organization {
+  id          String                   @id @default(uuid()) @db.Uuid
+  name        String
+  slug        String                   @unique
+  createdById String                   @map("created_by") @db.Uuid
+  createdAt   DateTime                 @default(now()) @map("created_at")
+  archivedAt  DateTime?                @map("archived_at")
+  createdBy   User                     @relation("OrganizationCreator", fields: [createdById], references: [id])
+  memberships OrganizationMembership[]
+  games       Game[]
+  auditEvents AuditEvent[]
+
+  @@map("organizations")
+}
+
+model OrganizationMembership {
+  organizationId String       @map("organization_id") @db.Uuid
+  userId         String       @map("user_id") @db.Uuid
+  role           String
+  status         String       @default("active")
+  createdAt      DateTime     @default(now()) @map("created_at")
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([organizationId, userId])
+  @@map("organization_memberships")
+}
+
+model Game {
+  id                    String              @id @default(uuid()) @db.Uuid
+  organizationId        String              @map("organization_id") @db.Uuid
+  name                  String
+  slug                  String
+  description           String?
+  lifecycleStatus       String              @default("draft") @map("lifecycle_status")
+  privacyClassification String              @default("test") @map("privacy_classification")
+  releaseStatus         String              @default("not_submitted") @map("release_status")
+  createdById           String              @map("created_by") @db.Uuid
+  createdAt             DateTime            @default(now()) @map("created_at")
+  updatedAt             DateTime            @updatedAt @map("updated_at")
+  archivedAt            DateTime?           @map("archived_at")
+  organization          Organization        @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+  createdBy             User                @relation("GameCreator", fields: [createdById], references: [id])
+  serviceEnrollments    ServiceEnrollment[]
+  reviewRecords         ReviewRecord[]
+
+  @@unique([organizationId, slug])
+  @@map("games")
+}
+
+model ServiceDefinition {
+  id                String              @id @default(uuid()) @db.Uuid
+  serviceKey        String              @unique @map("service_key")
+  displayName       String              @map("display_name")
+  description       String?
+  launchUrlTemplate String?             @map("launch_url_template")
+  status            String              @default("active")
+  enrollments       ServiceEnrollment[]
+
+  @@map("service_definitions")
+}
+
+model ServiceEnrollment {
+  id                  String            @id @default(uuid()) @db.Uuid
+  gameId              String            @map("game_id") @db.Uuid
+  serviceDefinitionId String            @map("service_definition_id") @db.Uuid
+  status              String            @default("setup_required")
+  serviceResourceId   String?           @map("service_resource_id")
+  serviceResourceUrl  String?           @map("service_resource_url")
+  createdAt           DateTime          @default(now()) @map("created_at")
+  updatedAt           DateTime          @updatedAt @map("updated_at")
+  game                Game              @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  serviceDefinition   ServiceDefinition @relation(fields: [serviceDefinitionId], references: [id], onDelete: Restrict)
+
+  @@unique([gameId, serviceDefinitionId])
+  @@map("service_enrollments")
+}
+
+model ReviewRecord {
+  id             String    @id @default(uuid()) @db.Uuid
+  gameId         String    @map("game_id") @db.Uuid
+  reviewType     String    @map("review_type")
+  status         String
+  reviewerUserId String?   @map("reviewer_user_id") @db.Uuid
+  notes          String?
+  createdAt      DateTime  @default(now()) @map("created_at")
+  decidedAt      DateTime? @map("decided_at")
+  game           Game      @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  reviewer       User?     @relation("ReviewReviewer", fields: [reviewerUserId], references: [id])
+
+  @@map("review_records")
+}
+
+model AuditEvent {
+  id             String        @id @default(uuid()) @db.Uuid
+  actorUserId    String        @map("actor_user_id") @db.Uuid
+  organizationId String?       @map("organization_id") @db.Uuid
+  action         String
+  resourceType   String        @map("resource_type")
+  resourceId     String        @map("resource_id") @db.Uuid
+  metadataJson   Json          @default("{}") @map("metadata_json")
+  occurredAt     DateTime      @default(now()) @map("occurred_at")
+  actor          User          @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+
+  @@index([resourceType, resourceId])
+  @@map("audit_events")
+}
+
+model OutboxEvent {
+  id            String    @id @default(uuid()) @db.Uuid
+  eventType     String    @map("event_type")
+  schemaVersion Int       @map("schema_version")
+  aggregateType String    @map("aggregate_type")
+  aggregateId   String    @map("aggregate_id") @db.Uuid
+  payloadJson   Json      @map("payload_json")
+  occurredAt    DateTime  @default(now()) @map("occurred_at")
+  publishedAt   DateTime? @map("published_at")
+  attemptCount  Int       @default(0) @map("attempt_count")
+
+  @@index([publishedAt, occurredAt])
+  @@map("outbox_events")
+}
