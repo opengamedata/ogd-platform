@@ -1,6 +1,7 @@
 import { signIn, signOut } from '@/auth';
 import { Github, LogIn, LogOut } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { Button } from '@/components/ui/button';
 
 function hasCredential(value: string | undefined) {
   return Boolean(value && value !== 'replace-me');
@@ -22,10 +23,10 @@ function ProviderSignInAction({
         await signIn(provider);
       }}
     >
-      <button type="submit">
+      <Button type="submit">
         {icon}
         {label}
-      </button>
+      </Button>
     </form>
   );
 }
@@ -41,7 +42,7 @@ export function SignInAction() {
     hasCredential(process.env.OIDC_CLIENT_SECRET);
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
+    <div className="flex flex-wrap gap-2">
       {hasGithub ? (
         <ProviderSignInAction provider="github" label="Sign in with GitHub" icon={<Github size={16} />} />
       ) : null}
@@ -51,7 +52,9 @@ export function SignInAction() {
       {hasOidc ? (
         <ProviderSignInAction provider="oidc" label="Sign in with OIDC" icon={<LogIn size={16} />} />
       ) : null}
-      {!hasGithub && !hasGoogle && !hasOidc ? <p className="error">No SSO provider is configured.</p> : null}
+      {!hasGithub && !hasGoogle && !hasOidc ? (
+        <p className="text-sm font-semibold text-destructive">No SSO provider is configured.</p>
+      ) : null}
     </div>
   );
 }
@@ -64,10 +67,10 @@ export function SignOutAction() {
         await signOut();
       }}
     >
-      <button className="secondary" type="submit">
+      <Button variant="outline" type="submit">
         <LogOut size={16} />
         Sign out
-      </button>
+      </Button>
     </form>
   );
 }
