@@ -69,6 +69,12 @@ model Game {
   name                  String
   slug                  String
   description           String?
+  targetAudience        String?             @map("target_audience")
+  subject               String?
+  thumbnailUrl          String?             @map("thumbnail_url")
+  playUrl               String?             @map("play_url")
+  sourceUrl             String?             @map("source_url")
+  studies               String?
   lifecycleStatus       String              @default("draft") @map("lifecycle_status")
   privacyClassification String              @default("test") @map("privacy_classification")
   releaseStatus         String              @default("not_submitted") @map("release_status")

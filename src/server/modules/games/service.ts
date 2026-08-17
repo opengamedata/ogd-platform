@@ -50,6 +50,12 @@ export async function createGame(input: {
   actorUserId: string;
   name: string;
   description?: string;
+  targetAudience?: string;
+  subject?: string;
+  thumbnailUrl?: string;
+  playUrl?: string;
+  sourceUrl?: string;
+  studies?: string;
   lifecycleStatus: GameLifecycleStatus;
   privacyClassification: PrivacyClassification;
   releaseStatus: ReleaseStatus;
@@ -66,6 +72,12 @@ export async function createGame(input: {
         name: input.name,
         slug: appendShortId(baseSlug, crypto.randomUUID()),
         description: input.description || null,
+        targetAudience: input.targetAudience || null,
+        subject: input.subject || null,
+        thumbnailUrl: input.thumbnailUrl || null,
+        playUrl: input.playUrl || null,
+        sourceUrl: input.sourceUrl || null,
+        studies: input.studies || null,
         lifecycleStatus: input.lifecycleStatus,
         privacyClassification: input.privacyClassification,
         releaseStatus: input.releaseStatus,
@@ -113,6 +125,12 @@ export async function updateGame(input: {
   actorUserId: string;
   name?: string;
   description?: string;
+  targetAudience?: string;
+  subject?: string;
+  thumbnailUrl?: string;
+  playUrl?: string;
+  sourceUrl?: string;
+  studies?: string;
   lifecycleStatus?: GameLifecycleStatus;
   privacyClassification?: PrivacyClassification;
   releaseStatus?: ReleaseStatus;
@@ -135,6 +153,12 @@ export async function updateGame(input: {
       data: {
         ...(input.name ? { name: input.name } : {}),
         ...(input.description !== undefined ? { description: input.description || null } : {}),
+        ...(input.targetAudience !== undefined ? { targetAudience: input.targetAudience || null } : {}),
+        ...(input.subject !== undefined ? { subject: input.subject || null } : {}),
+        ...(input.thumbnailUrl !== undefined ? { thumbnailUrl: input.thumbnailUrl || null } : {}),
+        ...(input.playUrl !== undefined ? { playUrl: input.playUrl || null } : {}),
+        ...(input.sourceUrl !== undefined ? { sourceUrl: input.sourceUrl || null } : {}),
+        ...(input.studies !== undefined ? { studies: input.studies || null } : {}),
         ...(input.lifecycleStatus ? { lifecycleStatus: input.lifecycleStatus } : {}),
         ...(input.privacyClassification
           ? { privacyClassification: input.privacyClassification }
