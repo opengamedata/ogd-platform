@@ -1,4 +1,4 @@
-# OGD Platform
+# OGD Reference Platform
 
 Modular-monolith Platform control plane for the first Open Game Data vertical slice:
 
@@ -7,7 +7,7 @@ Sign in -> create Organization -> create Game -> set Game governance state
 -> enroll Pipeline service -> show Pipeline setup state -> view Game overview
 ```
 
-The Platform owns shared identity, Organizations, Games, governance state, generic service enrollment, audit, and outbox records. Pipeline-specific resources such as telemetry, integrations, environments, logging specs, generators, and datasets stay out of this codebase.
+This repository is the Open Game Data reference Platform implementation. The Platform owns shared identity, Organizations, Games, governance state, generic service enrollment, audit, and outbox records. Pipeline-specific resources such as telemetry, integrations, environments, logging specs, generators, and datasets stay out of this codebase.
 
 ## Local Setup
 

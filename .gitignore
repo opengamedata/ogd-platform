@@ -1,9 +1,13 @@
 .env
 .env.*
 !.env.example
+
 .next
 node_modules
 coverage
 dist
 *.tsbuildinfo
+
 prisma/dev.db
+
+.vscode/
